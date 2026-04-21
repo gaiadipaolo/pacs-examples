@@ -4,5 +4,4 @@ heat_exchange.pdf:
 mkBoostInc?=/usr/include
 mkBoostLib?=/usr/lib/x86_64-linux-gnu
 
-CPPFLAGS+=-I$(mkBoostInc) -DGNUPLOT
-LDLIBS+=-L$(mkBoostLib) -lboost_iostreams -lboost_system -lboost_filesystem
+

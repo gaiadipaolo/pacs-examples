@@ -69,5 +69,8 @@ struct parameters
   int solverType = 0;
 };
 //! Prints parameters
+// output streaming operator; first arg output stream (base class for allpossible output streams, eg. cout or a file),
+// second arg= what we want to print,
+// return reference to stream, because every time it has to be available for concatenation
 std::ostream &operator<<(std::ostream &, const parameters &);
 #endif

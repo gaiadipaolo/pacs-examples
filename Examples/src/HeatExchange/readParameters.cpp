@@ -6,9 +6,9 @@ parameters
 readParameters(std::string const &filename, bool verbose)
 {
   parameters defaults;
-  // checks if file exixts and is readable
+  // checks if file exists and is readable
   std::ifstream check(filename);
-  if(!check)
+  if(!check) //or if(check.bad())
     {
       std::cerr << "ERROR: Parameter file " << filename << " does not exist"
                 << std::endl;
@@ -21,10 +21,14 @@ readParameters(std::string const &filename, bool verbose)
   else
     check.close();
 
+  // open file with a getpot object and pass as c string the content of filename
+  // getpot reads the file and parse its content, organize internal database to store the content
+  // we can interrogate the getpot file
   GetPot     ifile(filename.c_str());
   parameters values;
   // Read parameters from getpot ddata base
   // Read parameters from GetPot database
+  // check if the file contains a variable with that name and get its value, if not get a default value
   values.itermax = ifile("itermax", defaults.itermax);
   values.toler = ifile("toler", defaults.toler);
   values.L = ifile("L", defaults.L);

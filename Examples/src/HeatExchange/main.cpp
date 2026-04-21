@@ -60,7 +60,7 @@ main(int argc, char **argv)
   // check if we want verbosity
   bool verbose = cl.search(1, "-v");
   // Get file with parameter values
-  string filename = cl.follow("parameters.pot", "-p");// Look if -p option is there
+  string filename = cl.follow("parameters.pot", "-p");// Look if -p option is there, take what follows
   // if not use default parameters.pot
   auto   pos = filename.find(".json");// look for substring ".json" in filename
   if(pos != std::string::npos)
